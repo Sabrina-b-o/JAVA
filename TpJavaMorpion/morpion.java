@@ -55,6 +55,24 @@ public class morpion
 				return victory;
 			}
 			
+			// vérification sur la case a déjà été remplie
+			
+			public static boolean caseRemplie(int nbCase)
+			{
+				if(nbCase == 'X' || nbCase == 'O')
+				
+				{
+					
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+
+			
 			// Demande du numéro de la case et remplissage par X ou O
 			
 			public static void demanderNum(int numJoueur)
@@ -71,63 +89,142 @@ public class morpion
 					symbol = 'O';
 				}
 				
-				
-				
 				//On demande la case au joueur
 				System.out.println("Joueur " + numJoueur + " a toi de jouer : ");
 				Scanner scanner = new Scanner(System.in);
 				int choix = scanner.nextInt();
 				
-				//Remplir le case avec un symbol
-				if(choix == 1)
-				{
-					case1 = symbol;
-				}
-				else if (choix == 2)
-				{
-					case2 = symbol;
-				}
-				else if (choix == 3)
-				{
-					case3 = symbol;
-				}
-				else if (choix == 4)
-				{
-					case4 = symbol;
-				}
-				else if (choix == 5)
-				{
-					case5 = symbol;
-				}
-				else if (choix == 6)
-				{
-					case6 = symbol;
-				}
-				else if (choix == 7)
-				{
-					case7 = symbol;
-				}
-				else if (choix == 8)
-				{
-					case8 = symbol;
-				}
-				else if (choix == 9)
-				{
-					case9 = symbol;
-				}
-				System.out.print("Tu as joue sur la case : " + choix);
-			
+	
+				//Remplir le case avec le bon symbol
 				
-				if(victoryOrNot() == true)
-				{
+				switch (choix) {
 					
-					System.out.println("\n" + "Bravo tu as gagné !");
+				  case 1:
+				  // on vérifie que la case n'ait pas été jouée 
+					if((case1 != 'X') && (case2 != 'O'))
+					{
+						case1 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 2: 
+					if((case2 != 'X') && (case2 != 'O'))
+					{
+						case2 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 3: 
+					if((case3 != 'X') && (case3 != 'O'))
+					{
+						case3 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 4:
+					if((case4 != 'X') && (case4 != 'O'))
+					{
+						case4 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 5:
+					if((case5 != 'X') && (case5 != 'O'))
+					{
+						case5 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 6:
+					if((case6 != 'X') && (case6 != 'O'))
+					{
+						case6 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 7:
+					if((case7 != 'X') && (case7 != 'O'))
+					{
+						case7 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 8:
+					if((case8 != 'X') && (case8 != 'O'))
+					{
+						case8 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+					
+				  case 9:
+					if((case9 != 'X') && (case9 != 'O'))
+					{
+						case9 = symbol;
+					}
+					else
+					{
+						System.out.println("Cette case a deja ete joue !!");
+						demanderNum(numJoueur);
+					}
+					break;
+				}
+				
+				
+				// On vérifie si le joueur à gagner et lequel a gagné
+				if(victoryOrNot() == true && symbol == 'X')
+				{
+					System.out.println("\n");
+					afficherGrille();
+					System.out.println("\n" + "Bravo joueur 1 tu as gagne !");
 					System.exit(0);
 					
 				}
-				else
+				else if (victoryOrNot() == true && symbol == 'O')
 				{
-					
+					System.out.println("\n");
+					afficherGrille();
+					System.out.println("\n" + "Bravo joueur 2 tu as gagne !");
+					System.exit(0);
 				}
 			}
 			
@@ -137,10 +234,12 @@ public class morpion
 	{
 		
 		
+		
 		//Dire bonjour
 		System.out.println("\n");
 		System.out.println("Bonjour bienvenue sur mon super morpion" +"\n" + "Pour jouer tape le numero de la case");
 		System.out.println("\n");
+
 		
 		
 		//Afficher la grille --> FONCTION
@@ -216,10 +315,31 @@ public class morpion
 		//Afficher la grille
 		System.out.println("\n");
 		demanderNum(1);
+
+
+		//Match nul 
 		System.out.println("\n");
 		afficherGrille();
+		System.out.println("\n");
+		System.out.println("Vous etes nuls : egalite");
+
+		// On demande si le joueur veut relancer une partie
 		
 
+		System.out.println("Veux tu rejouer ? 1 pour OUI / 2 pour NON ");
+		Scanner scanner = new Scanner(System.in);
+		int rejouer = scanner.nextInt();
+		
+		if(rejouer == 1 )
+		{
+			afficherGrille();
+			demanderNum(1);
+		}
+		else
+		{
+			System.exit(0);
+		}
+		
 
 	}
 }
