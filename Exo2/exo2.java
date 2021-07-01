@@ -5,10 +5,7 @@ public class exo2 {
 
     //Fonction majeur
     public static boolean estMajeur(int age) {
-        if (age >= 18) {
-            return true;
-        }
-        return false;
+        return age >= 18;
     }
 
     //Fonction signe()
@@ -20,6 +17,8 @@ public class exo2 {
         } else {
             System.out.println("Il est nul !");
         }
+
+        /*return num > 0 ? "positif":(num <0) ? "negatif": "nul");  => Version simplifiée  */
     }
 
     //Fonction plusGrand2()
@@ -41,6 +40,15 @@ public class exo2 {
         }else{
             return num1;
         }
+
+      /*  ( num1 > num2 ) ? num2 : num1;    => Version simplifiée */
+    }
+
+    //Fonction plusPetit2bis() en 1 ligne
+    public static int plusPetit2bis(int num1, int num2)
+    {
+
+      return  ( num1 > num2 ) ? num2 : num1;
     }
 
     //Fonction plusPetit3()
@@ -81,16 +89,19 @@ public class exo2 {
         return false;
     }
 
+
+
     //Fonction quelPermis()
     public static String quelPermis(int age)
     {
+        /*
         String result;
 
         if(age < 16)
         {
             result = "Passager d'un véhicule";
         }
-        else if(age >= 16 && age < 18)
+        else if(age < 18)
         {
             result = "Eligible conduite accompagnée";
         }
@@ -99,7 +110,19 @@ public class exo2 {
                result= "Eligible Permis B";
         }
         return result;
+        */
+        if(age < 16)
+        {
+            return "Passager d'un véhicule";
+        }
+        if (age < 18)
+        {
+            return "Eligible conduite accompagnée";
+        }
+        return "Eligible Permis B";
     }
+
+
 
     //Fonction capital()
     public static String capital(String pays)
@@ -155,6 +178,8 @@ public class exo2 {
         System.out.println(quelPermis(80));
 
         System.out.println(capital("France"));
+
+        System.out.println(plusPetit2bis(5,14));
     }
 
 }
