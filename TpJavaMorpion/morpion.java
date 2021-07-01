@@ -22,100 +22,17 @@ public class morpion {
 		System.out.println("Bonjour bienvenue sur mon super morpion" + "\n" + "Pour jouer tape le numero de la case");
 		System.out.println("\n");
 
-		
 
-
-
-		// remplir la grille avec un X
-		//Afficher la grille
-		afficherGrille();
-
-
-		//Joueur 2 -> jouer
-		System.out.println("\n");
-		demanderNum(1);
-		System.out.println("\n");
-
-
-		//Remplir la grille avec un 0
-		//Afficher la grille
-		afficherGrille();
-
-
-		//Joueur 1 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(2);
-		System.out.println("\n");
-		afficherGrille();
-
-
-		//Joueur 2 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(1);
-		System.out.println("\n");
-		afficherGrille();
-
-		//Joueur 1 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(2);
-		System.out.println("\n");
-		afficherGrille();
-
-
-		//Joueur 2 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(1);
-		System.out.println("\n");
-		afficherGrille();
-
-		//Joueur 1 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(2);
-		System.out.println("\n");
-		afficherGrille();
-
-		//Joueur 2 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(1);
-		System.out.println("\n");
-		afficherGrille();
-
-		//Joueur 1 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(2);
-		System.out.println("\n");
-		afficherGrille();
-
-		//Joueur 1 -> jouer
-		//Afficher la grille
-		System.out.println("\n");
-		demanderNum(1);
-		System.out.println("\n");
-		afficherGrille();
-
-		// On demande si le joueur veut relancer une partie
-		if (victoryOrNot() == true) {
-
-			System.out.println("Veux tu rejouer ? 1 pour OUI / 2 pour NON ");
-			Scanner scanner = new Scanner(System.in);
-			int rejouer = scanner.nextInt();
-
-			if (rejouer == 1) {
-				afficherGrille();
-				demanderNum(1);
-			} else {
-				System.exit(0);
-			}
-
+		while (victoryOrNot() == false)
+		{
+			afficherGrille();
+			System.out.println("\n");
+			demanderNum(1);
+			System.out.println("\n");
+			afficherGrille();
+			System.out.println("\n");
+			demanderNum(2);
 		}
-
 	}
 	// Affichage de la grille de morpion
 
@@ -140,7 +57,14 @@ public class morpion {
 			victory = true;
 		} else if (case1 == case5 && case1 == case9 && case5 == case9) {
 			victory = true;
-		} else {
+		} else if (case1 == case4 && case1 == case7 && case7 == case4) {
+			victory = true;
+		} else if (case2 == case5 && case2 == case8 && case8 == case5) {
+			victory = true;
+		} else if (case3 == case6 && case3 == case9 && case9 == case6) {
+			victory = true;
+		}
+		else {
 			victory = false;
 		}
 		return victory;
@@ -208,7 +132,6 @@ public class morpion {
 					if ((case2 != 'X') && (case2 != 'O') && (choixIA == 2)) {
 						case2 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -217,7 +140,6 @@ public class morpion {
 					if ((case3 != 'X') && (case3 != 'O') && (choixIA == 3)) {
 						case3 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -226,7 +148,6 @@ public class morpion {
 					if ((case4 != 'X') && (case4 != 'O') && (choixIA == 4)) {
 						case4 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -235,7 +156,6 @@ public class morpion {
 					if ((case5 != 'X') && (case5 != 'O') && (choixIA == 5)) {
 						case5 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -244,7 +164,6 @@ public class morpion {
 					if ((case6 != 'X') && (case6 != 'O') && (choixIA == 6)) {
 						case6 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -253,7 +172,6 @@ public class morpion {
 					if ((case7 != 'X') && (case7 != 'O') && (choixIA == 7)) {
 						case7 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -262,7 +180,6 @@ public class morpion {
 					if ((case8 != 'X') && (case8 != 'O') && (choixIA == 8)) {
 						case8 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -271,7 +188,6 @@ public class morpion {
 					if ((case9 != 'X') && (case9 != 'O') && (choixIA == 9)) {
 						case9 = symbol;
 					} else {
-						System.out.println("Cette case a deja ete joue !!");
 						demanderNum(2);
 					}
 					break;
@@ -284,6 +200,12 @@ public class morpion {
 			Scanner scanner = new Scanner(System.in);
 			int choix = scanner.nextInt();
 
+			//On demande de remplir un numéro valide
+			if(choix > 9 || choix < 1 )
+			{
+				System.out.println("Tu vois bien qu'il n'y a que 9 cases ! Rejoue ! ");
+				demanderNum(numJoueur);
+			}
 
 			//Remplir le case avec le bon symbol
 
@@ -380,7 +302,6 @@ public class morpion {
 			System.out.println("\n");
 			afficherGrille();
 			System.out.println("\n" + "Bravo joueur 1 tu as gagne !");
-			System.exit(0);
 
 		}
 		else if (victoryOrNot() && symbol == 'O')
@@ -389,9 +310,33 @@ public class morpion {
 			System.out.println("\n");
 			afficherGrille();
 			System.out.println("\n" + "Bravo joueur 2 tu as gagne !");
-			System.exit(0);
 		}
 
+		// On demande si le joueur veut relancer une partie
+		if (victoryOrNot())
+		{
+
+			System.out.println("Veux tu rejouer ? 1 pour OUI / 2 pour NON ");
+			Scanner scanner = new Scanner(System.in);
+			int rejouer = scanner.nextInt();
+
+			if (rejouer == 1) {
+				case1 = '1';
+				case2 = '2';
+				case3 = '3';
+				case4 = '4';
+				case5 = '5';
+				case6 = '6';
+				case7 = '7';
+				case8 = '8';
+				case9 = '9';
+				afficherGrille();
+				demanderNum(1);
+			} else {
+				System.exit(0);
+			}
+
+		}
 
 	}
 }
